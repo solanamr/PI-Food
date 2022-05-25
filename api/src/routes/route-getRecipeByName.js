@@ -1,4 +1,4 @@
-const { getRecipeByName } = require ('../controllers/controller-getByName')
+const { getRecipeByName } = require ('../controllers/getByName')
 const  router = require ('express').Router()  //** ejecutando la funcion ruteadora
 
 router.get('/?name', getRecipeByName)
