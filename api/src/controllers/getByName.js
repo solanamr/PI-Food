@@ -1,11 +1,13 @@
 const {Recipe , DietType, Op} = require("../db")
+const getApiInfo = require('./ApiData')
 
 
 const getRecipeByName = async(req, res) =>{
     try {
         const { name } = req.query
+        const recipeByName = await getApiInfo(name)
         if(name){ 
-            const recipesFound = await Recipe.findAll({
+            const recipeByName = await Recipe.findAll({
                 where: {
                     name: {
                         [Op.iLike]: `%${name}%`
@@ -19,8 +21,8 @@ const getRecipeByName = async(req, res) =>{
                     }
                 }
             })
-            if(recipesFound){
-                res.status(200).json(recipesFound)
+            if(recipeByName){
+                res.status(200).json(recipeByName)
             }else{
                 res.status(404).send('No se encontró ninguna receta')
             }
@@ -32,21 +34,6 @@ const getRecipeByName = async(req, res) =>{
     }  
 
 }
-
-
-
-// const getRecipeByName = async(req, res) =>{
-//     const { name } = req.query
-//     let totalRecetas = await getAllRecipes() 
-
-//     if(name){ //** si por query me pasan un nombre
-//         let nombreReceta = await totalRecetas.filter( r => r.name.toLowerCase().includes(name.toLowerCase()))  //** se hace un filter de todas las recetas por nombre donde se incluya el query y ademas que también se pueda incluir los nombre de recetas con todas letras minusculas
-//         nombreReceta.length ? res.status(200).send(nombreReceta) : res.status(404).send('No se encontró la receta, volvé a intentar')  //** un ternario donde si se encuentra la receta tira un 200 con la misma sino un 404 con el mensaje 
-//     }else{
-//         res.status(200).send(totalRecetas)  //**si no hay query tira un 200 con el total de las recetas
-//     }
-// }
-
 
 module.exports = { getRecipeByName }
 
@@ -73,25 +60,10 @@ module.exports = { getRecipeByName }
 //    return infoApi
 // }
 
-// const getInfoDb = async () =>{  //** me traigo la info de la bd y hago la relacion con el tipo de dieta
-//     return await Recipe.findAll({
-//         include:{
-//             model: DietType,
-//             attributes:["name"],  //** solo pido el nombre porque es lo unico que importa de esta tabla
-//             through: {
-//                 attributes: [],
-//             }
-//         }
-//     })
-// }
 
 
-// const getAllRecipes = async () =>{
-//     const apiInfo = await getApiInfo()
-//     const bdInfo = await getInfoDb()
-//     const allInfo  = await apiInfo.concat(bdInfo)
-//     return allInfo
-// };
+
+
 
 
 
