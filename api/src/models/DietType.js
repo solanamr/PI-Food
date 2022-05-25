@@ -3,9 +3,10 @@ const { DataTypes } = require('sequelize');
 // Luego le injectamos la conexion a sequelize.
 module.exports = (sequelize) => {
   // defino el modelo
-  sequelize.define('dietType', {
+  sequelize.define('diettype', {
     name: {
-      type: DataTypes.STRING, 
+      type: DataTypes.ENUM("Gluten Free", "Ketogenic", "Vegetarian", "Lacto-Vegetarian", "Ovo-Vegetarian",
+         "Vegan", "Pescetarian", "Paleo", "Primal", "Low FODMAP", "Whole30")
     }
   },{timestamps: false});
 };
