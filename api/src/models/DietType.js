@@ -5,8 +5,7 @@ module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define('diettype', {
     name: {
-      type: DataTypes.ENUM("Gluten Free", "Ketogenic", "Vegetarian", "Lacto-Vegetarian", "Ovo-Vegetarian",
-         "Vegan", "Pescetarian", "Paleo", "Primal", "Low FODMAP", "Whole30")
-    }
+      type: DataTypes.STRING
+    } 
   },{timestamps: false});
 };

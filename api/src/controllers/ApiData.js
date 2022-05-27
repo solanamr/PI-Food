@@ -1,39 +1,58 @@
-const { Recipe, DietType } = require('../db')
+const { Recipe, Diettype } = require('../db')
 const axios = require('axios')
 const { API_KEY } = process.env
 
-const getApiInfo = async () => {   //*! TENGO QUE CAMBIAR DE API TODOS LOS DIAS
+
+async function getApi() {
     try {
-        const urlApi = await axios(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true`)
-        // console.log(urlApi)
-        
-        for (let i = 0; i < steps.length; i++) {
-            urlApi.data.results.map((pasos) => pasos.steps)
-            pasos = `${pasos} ${steps[i]}`
-        }
-        
-        urlApi.data.results.map(async (r) =>{
-           await Recipe.findOrCreate({  //** lo concatena (o guarda) en la base de datos
-                where: {
-                   id: r.id,
-                   name: r.title,
-                   summary: r.summary,
-                   healthScore: r.healthScore,
-                   steps: r.analyzedInstructions[0]?.steps[0].step ? pasos  : '',
-                   image: r.image,
-                }
-            })
+        const infoApi = await axios(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=100`)
+        const apiData = infoApi.data?.results.map((r)=>{
+            return {
+                id: r.id,
+                name: r.title,
+                resumen: r.summary,
+                nivelSalud: r.healthScore,
+                imagen: r.image,
+                pasos: (r.analyzedInstructions[0] && r.analyzedInstructions[0].steps? r.analyzedInstructions[0].steps.map(s => s.step).join(" \n"):''),
+                dieta: r.diets
+            }
         })
-        
-    } catch (error) {
-        console.log(error)
+        return apiData
+    } catch(err){
+        console.log(err)
     }
 }
 
-getApiInfo()
+
+
+const getDbInfo = async () =>{
+    return await Recipe.findAll({
+        include:{
+            model: Diettype,
+            attributes: ["name"],
+            through: {
+                attributes: []
+            }
+        }
+    })
+}
+
+
+const getAllInfo = async () =>{
+    const apiInfo = await getApi()
+    const dbInfo = await getDbInfo()
+    const infoTotal = await apiInfo.concat(dbInfo)
+    
+    return infoTotal
+}
+
+
+
+
 
 module.exports = {
-    getApiInfo
-}
+      getApi,
+      getAllInfo
+ }
 
 

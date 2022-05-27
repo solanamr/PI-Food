@@ -19,10 +19,17 @@
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const server = require('./src/app.js');
 const { conn } = require('./src/db.js');
+const { getApiInfo } = require('./src/controllers/ApiData')
 
 // Syncing all the models at once.
-conn.sync({ force: true }).then(() => {
+conn.sync({ force: false })  //*1. npm start
+                            //*2. matar la terminal(ctrl + c)
+                            //*3. ponerlo en false
+
+// .then(getApiInfo, console.log('se guardo')) //*4.comentar esta linea
+.then(() => {
   server.listen(3001, () => {
     console.log('%s listening at 3001'); // eslint-disable-line no-console
+    
   });
 });

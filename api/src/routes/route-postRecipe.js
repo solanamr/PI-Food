@@ -1,8 +1,8 @@
-const { postRecipes } = require('../controllers/postRecipe')
-const router = require('express').Router()
+// const  getRecipe  = require('../controllers/getRecipes')
+// const router = require('express').Router()
 
 
-router.post('/recipes', postRecipes)
+// router.get('/', getRecipe)
 
 
-module.exports = router
+// module.exports = router

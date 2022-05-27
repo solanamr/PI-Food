@@ -1,11 +1,11 @@
-const { getRecipeByName } = require ('../controllers/getByName')
-const  router = require ('express').Router()  //** ejecutando la funcion ruteadora
+// const { getRecipeByName } = require ('../controllers/ApiData')
+// const  router = require ('express').Router()  //** ejecutando la funcion ruteadora
 
-router.get('/?name', getRecipeByName)
+// router.get('/', getRecipeByName)
 
 
 
-module.exports = router
+// module.exports = router
 
 
 

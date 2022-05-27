@@ -1,6 +1,9 @@
-const { getRecipeById } = require('../controllers/getById')
-const router = require('express').Router()
+// // const  getRecipeById = require('../controllers/ApiData')
+// const router = require('express').Router()
 
-router.get('/:id', getRecipeById)
 
-module.exports = router
+// // router.get('/', getRecipeById)
+
+
+
+// module.exports = router
