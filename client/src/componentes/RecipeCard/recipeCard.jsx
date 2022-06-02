@@ -1,14 +1,14 @@
 import React from "react";
 
-export default function Card({name, dieta, imagen, id}){
-console.log(dieta)
-
+export default function Card({name,  dieta, imagen, id}){
     return(
         <React.Fragment>
-            <div>
+            <div key = {id}>
                 <h2>{name}</h2>
-                <h4>{dieta}</h4>
-                <br />
+                {
+                     dieta.map(d => <h4>{ d + " "}</h4>)
+                }
+                {/* <h4>{diettypes} </h4> */}
                 <img src={imagen} alt="a" />
             </div>
         </React.Fragment>

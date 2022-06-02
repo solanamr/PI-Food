@@ -84,7 +84,8 @@ router.post('/recipes', async(req, res, next) =>{
                 name: dieta
             }
         })
-        await recipeCreated.addDiettypes(recetaC)
+        // console.log(Object.getPrototypeOf(recipeCreated))
+        await recipeCreated.addDietum(recetaC)
         res.status(200).send('¡Receta creada exitosamente!')
 
 
@@ -95,10 +96,10 @@ router.post('/recipes', async(req, res, next) =>{
 
 
 
-//*! dietas
+
 router.get('/diets', async (req, res, next) =>{
-    const tipoDeDietas = ['Gluten Free', 'Ketogenic', 'Vegetarian', 'Lacto-Vegetarian', 'Ovo-Vegetarian', 'Vegan', 'Pescetarian',
-                            'Paleo', 'Primal', 'Low FODMAP', 'Whole30']
+    const tipoDeDietas = ["gluten free", "dairy free", "lacto ovo vegetarian", "vegan", "paleolithic", "primal", "whole 30",
+    "fodmap friendly", "vegetarian", "pescatarian", "ketogenic"];
     try {
         tipoDeDietas.forEach(diet =>{
             Diettype.findOrCreate({
@@ -114,6 +115,7 @@ router.get('/diets', async (req, res, next) =>{
     }
 
 })
+
 // Configurar los routers
 
 

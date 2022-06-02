@@ -1,14 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import lg from '../LandingPage/lg.module.css'
 
 
 export default function LandingPage(){
     return(
         <React.Fragment>
-            <div>
-                <h1>¡Bienvenidos a la página de recetas!</h1>
+            <div className={lg.container}>
+                <h1>Let's cook!</h1>
                 <Link to = '/home'>
-                    <button>Ingresar</button>
+                    <button>Enter</button>
                 </Link>   
             </div>
         </React.Fragment>

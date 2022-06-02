@@ -5,12 +5,12 @@ import HomePage from './componentes/Home/home';
 
 function App() {
   return (
-<BrowserRouter>
+    <BrowserRouter>
+    <div className="App">
     <Routes>
       <Route path='/' element={<LandingPage />}/>
       <Route path= '/home' element= {<HomePage />}/> 
     </Routes>
-    <div className="App">
     </div>
 </BrowserRouter>
   );

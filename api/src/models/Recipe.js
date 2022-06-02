@@ -18,13 +18,18 @@ module.exports = (sequelize) => {
       allowNull: false
     },
     healthScore: {
-      type: DataTypes.FLOAT //** float es para numeros con coma
+      type: DataTypes.FLOAT //** para numeros con coma
     },
     steps:{
       type: DataTypes.TEXT  //** para textos largos
     },
     image: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      defaultValue: "https://img.myloview.es/fotomurales/continuous-line-drawing-of-french-chef-showing-ok-sign-700-177320101.jpg"
+    },
+    creadoEnDb: {
+      type: DataTypes.BOOLEAN,  
+      defaultValue: true
     }
   },{timestamps: false});
 };

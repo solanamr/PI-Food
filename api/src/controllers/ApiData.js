@@ -24,10 +24,10 @@ async function getApi() {
 }
 
 
-
 const getDbInfo = async () =>{
     return await Recipe.findAll({
         include:{
+            as: "dieta",
             model: Diettype,
             attributes: ["name"],
             through: {
