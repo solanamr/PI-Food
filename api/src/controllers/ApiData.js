@@ -32,9 +32,23 @@ const getDbInfo = async () =>{
             attributes: ["name"],
             through: {
                 attributes: []
-            }
-        }
-    })
+            },
+        },
+    }) 
+    // if(data.length === 0){
+    //     data = 'No existen datos en la base de datos'
+    //     return data
+    // }else{
+    //     const ReceDb = data.map((r) =>{
+    //         return{
+                
+    //             dieta: r.diets.map(d =>{
+    //                 return d.name
+    //             })
+    //         }
+    //     })
+    //     return ReceDb
+    // }
 }
 
 

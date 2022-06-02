@@ -6,6 +6,10 @@ export const DIET_TYPE_FILTER = "DIET_TYPE_FILTER";
 export const FILTRO_CREACION = "FILTRO_CREACION";
 export const ALPHABETICAL_SORT = "ALPHABETICAL_SORT"
 export const SCORE_SORT = "SCORE_SORT";
+export const SEARCH_RECIPE = "SEARCH_RECIPE";
+export const GET_DIET = "GET_DIET";
+ 
+
 
 //! todas las recetas - funca
 
@@ -65,12 +69,12 @@ export function getRecipeDetail(payload){
     }
 }
 
-//* busqueda por nombre - creo que no es necesaria
+//! busqueda por nombre -anda
 
-export function recipeByName(payload){
+export function recipeByName(name){
     return async function(dispatch){
         try {
-            const busqueda = await axios.get(`http://localhost:3001/recipes?name=${payload}`)
+            const busqueda = await axios.get(`http://localhost:3001/recipes?name=${name}`)
             return dispatch({
                 type: "SEARCH_RECIPE",
                 payload: busqueda.data
@@ -81,9 +85,9 @@ export function recipeByName(payload){
     }
 }
 
-//* receta por dieta - - creo que no es necesaria
+//! incluir dieta en el post - 
 
-export function recipeByDiet(){
+export function geDieta(){
     return async function(dispatch){
         try {
             const dieta = axios.get(`http://localhost:3001/diets`)
@@ -98,6 +102,14 @@ export function recipeByDiet(){
 }
 
 
+//! posteo 
+export function postReceta(payload){
+    return async function(dispatch){
+        const posteo = await axios.post(`http://localhost:3001/recipes`, payload)
+        return posteo
+    }
+}
+
 
 //! filtro de api y db - anda a medias
 
@@ -109,7 +121,7 @@ export function recipeCreated(payload){
 }
 
 
-//! orden alfabetico
+//! orden alfabetico - anda
 
 export function alphabeticSort(payload){
     return{
@@ -119,7 +131,7 @@ export function alphabeticSort(payload){
 }
 
 
-//! orden puntuacion
+//! orden puntuacion - anda
 
 export function scoreSort(payload){
     return{

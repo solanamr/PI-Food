@@ -2,7 +2,9 @@ import {GET_ALL_RECIPES,
   DIET_TYPE_FILTER, 
   FILTRO_CREACION, 
   ALPHABETICAL_SORT,
-  SCORE_SORT} from '../actions/actions' 
+  SCORE_SORT, 
+  SEARCH_RECIPE,
+  GET_DIET} from '../actions/actions' 
 
 
 const initialState = {
@@ -13,14 +15,30 @@ const initialState = {
 
 export default function rootReducer(state = initialState, action){
   switch (action.type) {
-    case GET_ALL_RECIPES:
+    case GET_ALL_RECIPES: //* anda
       return{
         ...state, 
         recetas: action.payload,
         recetasCopy: action.payload
       }
-      
-          case DIET_TYPE_FILTER:
+      case SEARCH_RECIPE:
+        return{
+          ...state,
+          recetas: action.payload
+        }
+
+        case "POST_RECETA":
+          return{
+            ...state
+          }
+
+          case GET_DIET:
+            return{
+              ...state,
+              diets: action.payload
+            }
+
+          case DIET_TYPE_FILTER: //* anda
             const todasRecetas = state.recetasCopy
             const filtroDieta = todasRecetas.filter(r => r.dieta?.some(d => d === action.payload))
 
@@ -28,14 +46,16 @@ export default function rootReducer(state = initialState, action){
               ...state,
               recetas: filtroDieta
             }
-            case FILTRO_CREACION:
+
+            case FILTRO_CREACION: //* anda a medias
               const dFilter = state.recetasCopy
               const dataFiltrada = action.payload === 'created' ? dFilter.filter(f => f.creadoEnDb) : dFilter.filter(fil => !fil.creadoEnDb)
+              console.log(dataFiltrada)
               return{
                 ...state,
                 recetas: action.payload === "all" ? state.recetasCopy : dataFiltrada
               }
-              case ALPHABETICAL_SORT:
+              case ALPHABETICAL_SORT: //* anda
                 const array = action.payload === "asc" ? state.recetas.sort(function(a, b){
                   if(a.name > b.name){
                     return 1
@@ -47,40 +67,42 @@ export default function rootReducer(state = initialState, action){
                   return 0
                 }) :
                 state.recetas.sort(function(a, b){
-                  if(a.name > b.name){
+                  if(a.name.toLowerCase() > b.name.toLowerCase()){
                     return -1
                   }
-                  if(b.name > a.name){
+                  if(b.name.toLowerCase() > a.name.toLowerCase()){
 
                     return 1
                   }
                   return 0
                 })
+                 console.log(array)
 
                 return{
                   ...state,
                   recetas: array
                 }
 
-                case SCORE_SORT:
-                  let sortedArr = action.payload === 'UP' ? state.recetas.sort(function (a, b) {
-                      if (a.score > b.score) {
+                case SCORE_SORT:  
+                  let sortedArr = action.payload === 'up' ? state.recetas.sort(function (a, b) {
+                      if (a.nivelSalud > b.nivelSalud) {
                           return 1
                       }
-                      if (b.score > a.score) {
+                      if (b.nivelSalud > a.nivelSalud) {
                           return -1
                       }
                       return 0
                   }) :
                       state.recetas.sort(function (a, b) {
-                          if (a.score > b.score) {
+                          if (a.nivelSalud > b.nivelSalud) {
                               return -1
                           }
-                          if (b.score > a.score) {
+                          if (b.nivelSalud > a.nivelSalud) {
                               return 1
                           }
                           return 0
                       })
+                      // console.log(sortedArr)
                   return {
                       ...state,
                       recetas: sortedArr

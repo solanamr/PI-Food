@@ -5,12 +5,14 @@ import { getAllRecipes, filterByDiet, recipeCreated, alphabeticSort, scoreSort }
 import { Link } from "react-router-dom";
 import Card from "../RecipeCard/recipeCard";
 import Pagination from "../Pagination/pagination";
+import SearchBar from "../SearchBar/searchBar";
 
 
 export default function HomePage(){
     
     const dispatch = useDispatch()  //* mapdispatch...
     const allRecipes = useSelector((state) => {return state.recetas})  //* reemplaza al mapstatetoprops
+    const [orden, setOrden] = useState("")
     const [pagActual, setPagActual] = useState(1)
     const [recPorPag, setRecPorPag] = useState(9)
     const indiceLastRec = pagActual * recPorPag;
@@ -34,20 +36,26 @@ export default function HomePage(){
         dispatch(getAllRecipes())
     } 
     
-    function handleFiltroByDieta(e){
+    function handleFiltroByDieta(e){ //*anda
        dispatch(filterByDiet(e.target.value))
     }
 
-    function handleFiltroDb(e){
+    function handleFiltroDb(e){ //*anda
         dispatch(recipeCreated(e.target.value))
     }
 
-    function handleAToZ(e){
+    function handleAToZ(e){ //*anda
+        e.preventDefault()
         dispatch(alphabeticSort(e.target.value))
+        setPagActual(1)
+        setOrden(`Ordenado ${e.target.value}`)
     }
 
-    function handlScoreSort(e){
+    function handleScoreSort(e){
+        e.preventDefault()
         dispatch(scoreSort(e.target.value))
+        setPagActual(1)
+        setOrden(`Ordenado ${e.target.value}`)
     }
 
     return(
@@ -60,7 +68,7 @@ export default function HomePage(){
 
             </div>
         <div>
-        <select onChange={e => handleAToZ(e)}> 
+        <select onChange={e => {handleAToZ(e)}}> 
             <option value="">Búsqueda alfabética</option>
             <option value="asc">A-Z</option>
             <option value="desc">Z-A</option>
@@ -68,7 +76,7 @@ export default function HomePage(){
      </div>
     
         <div>
-            <select onChange={e => handleFiltroByDieta(e)}> 
+            <select onChange={e => {handleFiltroByDieta(e)}}> 
             <option velue="all">Todas las Dietas</option>
                 <option value="gluten free">Gluten Free</option>
                 <option value="dairy free">Dairy Free</option>
@@ -85,7 +93,7 @@ export default function HomePage(){
         </div>
 
         <div>
-            <select onChange={e =>{handlScoreSort(e)}}>  
+            <select onChange={e =>{handleScoreSort(e)}}>  
                 <option value="">Búsqueda por puntuacion</option>
                 <option value="up">Más alta</option>
                 <option value="down">Más baja</option>
@@ -93,7 +101,7 @@ export default function HomePage(){
         </div>
 
         <div>
-            <select onChange={e => handleFiltroDb(e)}>  
+            <select onChange={e => {handleFiltroDb(e)}}>  
                 <option value="all">Todas las recetas</option>
                 <option value="current">Existentes</option>
                 <option value="created">Creadas</option>
@@ -105,7 +113,7 @@ export default function HomePage(){
         allRecipes = {allRecipes.length}
         paginado = {paginado}
         />
-        {/* <NavBar /> */}
+        <SearchBar />
     <div>
         <span>
 

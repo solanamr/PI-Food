@@ -5,14 +5,16 @@ import lg from '../LandingPage/lg.module.css'
 
 export default function LandingPage(){
     return(
-        <React.Fragment>
+         <React.Fragment>
             <div className={lg.container}>
-                <h1>Let's cook!</h1>
-                <Link to = '/home'>
-                    <button>Enter</button>
-                </Link>   
+                <div className={lg.h1}>
+                     <h1>Let's cook!</h1>
+                </div>
+                        <Link to = '/home'>
+                            <button>Enter</button>
+                         </Link>   
             </div>
-        </React.Fragment>
+         </React.Fragment>
     )
 }
 

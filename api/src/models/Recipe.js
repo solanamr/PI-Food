@@ -13,17 +13,17 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING, //** para pocas palabras
       allowNull: false,
     },
-    summary: {
+    resumen: {
       type: DataTypes.TEXT,
       allowNull: false
     },
-    healthScore: {
+    nivelSalud: {
       type: DataTypes.FLOAT //** para numeros con coma
     },
-    steps:{
+    pasos:{
       type: DataTypes.TEXT  //** para textos largos
     },
-    image: {
+    imagen: {
       type: DataTypes.STRING,
       defaultValue: "https://img.myloview.es/fotomurales/continuous-line-drawing-of-french-chef-showing-ok-sign-700-177320101.jpg"
     },

@@ -61,15 +61,15 @@ router.get('/recipes/:id', async(req, res, next) =>{
 //*! post
 router.post('/recipes', async(req, res, next) =>{
     try {
-        const { name, summary, healthScore, steps, image, dieta } = req.body
+        const { name, resumen, nivelSalud, pasos, imagen, dieta } = req.body
         let id = Math.floor(Math.random()*12345)
         const recipeCreated = await Recipe.create({ 
              id,
              name,
-             summary,
-             healthScore,
-             steps,
-             image
+             resumen,
+             nivelSalud,
+             pasos,
+             imagen
         })
     //     tipoDietas.map(async(diet) => {const dieta = await Dietas.findOne({ where: { name: diet }})
     // await receta.addDietas(dieta); })
