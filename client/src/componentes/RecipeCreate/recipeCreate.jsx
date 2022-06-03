@@ -3,11 +3,27 @@ import { Link, useNavigate } from "react-router-dom";
 import { geDieta, postReceta } from '../../actions/actions';
 import { useDispatch, useSelector } from "react-redux";
 
+
+function validacion(input){
+    const errores = {}
+    if(!input.name){
+        errores.name = "Debe contener un nombre"
+    }else if(!input.resumen){
+        errores.resumen = "Se necesita un resúmen"
+    }else if(input.nivelSalud < 10){
+        errores.nivelSalud = "El nivel de saludable debe ser mayor a 10"
+    }else if(!input.pasos){
+        errores.pasos = "Debes redactar los pasos"
+    }
+    return errores
+}
+
 export default function RecipeCreate(){
 
      const dispatch = useDispatch()
     // const refresh = useNavigate()
     // const dietas = useSelector((state) => state.diets)
+    const [errores, setErrores] = useState({})
 
     const [input, setInput] = useState({
         name: "",
@@ -28,6 +44,10 @@ export default function RecipeCreate(){
             ...input,
             [e.target.name] : e.target.value 
         })
+        setErrores(validacion({
+            ...input,
+            [e.target.name]: e.target.value
+        }))
         console.log(input)
     }
 
@@ -64,22 +84,27 @@ export default function RecipeCreate(){
                 <div>
                     <label htmlFor="">Nombre</label>
                     <input type="text" value={input.name} name= "name" onChange={(e)=>handleChange(e)}/>
+                    {errores.name && (<p>{errores.name}</p>)}
 
 
                     <label htmlFor="">Resumen</label>
                     <input type="text" value={input.resumen} name="resumen" onChange={(e)=>handleChange(e)}/>
+                    {errores.name && (<p>{errores.name}</p>)}
 
 
                     <label htmlFor="">Nivel de saludable</label>
                     <input type="number" value={input.nivelSalud} name = "nivelSalud" onChange={(e)=>handleChange(e)}/>
+                    {errores.name && (<p>{errores.name}</p>)}
 
 
                     <label htmlFor="">Imagen</label>
                     <input type="text" value={input.imagen} name="imagen" onChange={(e)=>handleChange(e)}/>
+                    {errores.name && (<p>{errores.name}</p>)}
 
 
                     <label htmlFor="">Pasos a seguir</label>
                     <input type="text" value={input.pasos} name="pasos" onChange={handleChange}/>
+                    {errores.name && (<p>{errores.name}</p>)}
 
 
                     <label htmlFor="">Dietas</label>

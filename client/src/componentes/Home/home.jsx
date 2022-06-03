@@ -6,15 +6,16 @@ import { Link } from "react-router-dom";
 import Card from "../RecipeCard/recipeCard";
 import Pagination from "../Pagination/pagination";
 import SearchBar from "../SearchBar/searchBar";
-
+import h from '../Home/h.module.css'
+ 
 
 export default function HomePage(){
     
     const dispatch = useDispatch()  //* mapdispatch...
     const allRecipes = useSelector((state) => {return state.recetas})  //* reemplaza al mapstatetoprops
     const [orden, setOrden] = useState("")
-    const [pagActual, setPagActual] = useState(1)
-    const [recPorPag, setRecPorPag] = useState(9)
+    const [pagActual, setPagActual] = useState(1) //estado local de la pagina actual
+    const [recPorPag, setRecPorPag] = useState(9) // estado local de personaje por pag
     const indiceLastRec = pagActual * recPorPag;
     const indiceFirstRec = indiceLastRec - recPorPag;
     const recetaActual = allRecipes.slice(indiceFirstRec, indiceLastRec)
@@ -60,7 +61,7 @@ export default function HomePage(){
 
     return(
         <React.Fragment>
-
+         <div className={h.container}>
             <div>
                 <Link to= '/recipes'><button>Crear receta</button></Link>
                 
@@ -116,25 +117,23 @@ export default function HomePage(){
         <SearchBar />
     <div>
         <span>
-
         <div>
                 {
                 recetaActual?.map(r => {
                         return(
                             <div key = {r.id}>
+                                <Link to= {`/recipes/${r.id}`}>
                                 <Card name = {r.name}  dieta = {r. dieta} imagen = {r.imagen} />
+                                </Link>
                             </div>
                         )
                     })
                 }
             </div>
-
-
-        {/* <RecipesDetails />         */}
         </span>
     </div>
 
-        
+  </div>
         </React.Fragment>
     )
 }

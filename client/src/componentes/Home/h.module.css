@@ -1,0 +1,7 @@
+.container{
+    /* background-color: blueviolet; */
+    background-image: url(./brooke-lark-wMzx2nBdeng-unsplash.jpg);
+    height: 100vh;
+    background-size: 220vh;
+    padding: 40px;
+}

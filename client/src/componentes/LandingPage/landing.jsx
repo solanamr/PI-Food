@@ -11,7 +11,7 @@ export default function LandingPage(){
                      <h1>Let's cook!</h1>
                 </div>
                         <Link to = '/home'>
-                            <button>Enter</button>
+                            <button className={lg.boton}>Enter</button>
                          </Link>   
             </div>
          </React.Fragment>

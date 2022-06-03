@@ -4,13 +4,14 @@ import {GET_ALL_RECIPES,
   ALPHABETICAL_SORT,
   SCORE_SORT, 
   SEARCH_RECIPE,
-  GET_DIET} from '../actions/actions' 
+  GET_DIET,
+  GET_RECIPE_DETAILS} from '../actions/actions' 
 
 
 const initialState = {
     recetas: [],
     recetasCopy: [],
-    diets: []
+    detalles: []
 }
 
 export default function rootReducer(state = initialState, action){
@@ -107,10 +108,11 @@ export default function rootReducer(state = initialState, action){
                       ...state,
                       recetas: sortedArr
                   }
-
-
-
-
+                  case GET_RECIPE_DETAILS:
+                    return{
+                      ...state,
+                      detalles: action.payload
+                    }
         default:
           return {...state}
       }

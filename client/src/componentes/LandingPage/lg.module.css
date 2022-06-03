@@ -2,20 +2,64 @@
     margin: 0;
 }
 
+
 .container{
     background-image: url(./brooke-lark-GTMGG-xvxdU-unsplashx2.jpg);
     height: 100vh;
     background-size: 215vh;
+    
     /* width: 100hv; */
 }
 
 .h1{
     /* display: flex; */
     /* flex-direction: row; */
+    font-size: 30px;
     align-items: center;
-    
     padding: 15vh;
+    color:blueviolet
+    
     /* text-align: center;
     vertical-align: middle;
     margin-top: 0,5rem; */
 }
+
+.boton {
+    width: 140px;
+    height: 45px;
+    font-size: 23px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #D8E2DC;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 700;
+    position: relative;
+    transition: all 0.5s;
+    z-index: 1;
+   }
+
+.boton::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background-color: white;
+    z-index: -1;
+    transition: all 0.5s;
+   }
+   
+.boton:hover::before {
+    width: 100%;
+   }
+   
+.boton:hover {
+    color: black;
+   }
+   
+.boton:active:before {
+    background: #b9b9b9;
+   }
