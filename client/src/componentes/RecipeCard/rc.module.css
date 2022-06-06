@@ -1,0 +1,41 @@
+.contenedor{
+    display: grid;
+    flex-wrap: wrap;
+    margin: 20px;
+}
+.card {
+    /* display: flex;
+    flex-direction: row; */
+    margin: 10px;
+    padding: 10px;
+    cursor: pointer;
+    width: 400px;
+    height: 350px;
+    background: rgb(255, 255, 255);
+    color: #4A4E69;
+    border-radius: 5px;
+    border: 1px solid rgba(13, 13, 224, 0.2);
+    transition: all .2s;
+    box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
+    padding: 10px;
+   }
+   
+   .card:hover {
+    box-shadow: -12px 12px 2px -1px rgba(0, 0, 255, .2);
+   }
+
+.h2{
+    font-size: 16px;
+}
+
+.dieta{
+    /* text-align: justify; */
+    align-items: center;
+    margin: 5px;
+    /* padding: 5px; */
+}
+   .img{
+       align-items: center;
+       width: 150px;
+       height: 200px;
+   }

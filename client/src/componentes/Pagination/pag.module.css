@@ -1,0 +1,14 @@
+.botonPag{
+background-color: #C9ADA7;
+border-color: #C9ADA7;
+border-radius: 7%;
+color: #22223B;
+}
+
+.botonPag:hover{
+    background-color: #4A4E69;
+    border-color: #4A4E69;
+    border-radius: 7%;
+    color: #C9ADA7;
+    transition: 0.4s;
+}

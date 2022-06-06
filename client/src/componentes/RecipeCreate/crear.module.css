@@ -1,0 +1,156 @@
+.contenedor{
+    /* display: flex;
+    justify-content: center; */
+    background-image: url(../RecipeCreate/micheile-dot-com-aKQmLycovOk-unsplash.jpg);
+    height: 100vh;
+    background-size: 250vh;
+    
+}
+.div{
+
+    /* display: flex;
+    flex-wrap: wrap; */
+    /* align-items: center; */
+    /* text-align: center; */
+}
+
+h1{
+    color: #927c69;
+    text-align: center;
+    padding: 20px;
+    
+}
+
+.input{
+    /* display: flex; */
+    align-items: center;
+    margin: 10px;
+}
+.label{
+    /* display: flex; */
+    align-items: center;
+    margin: 25px;
+    padding: 1px;
+    font-size: 20px;
+    color: #3d3a39;
+
+}
+
+.dietas{
+    margin: 10px;
+    font-size: 20px;
+    color: #3d3a39;
+}
+
+.check{
+    /* padding: 5px; */
+    margin: 15px;
+    text-align: center;
+    color: #3d3a39;
+}
+
+.boton {
+    position: relative;
+    font-size: 10px;
+    text-transform: uppercase;
+    text-decoration: none;
+    margin: 3px;
+    padding: 1em 2.5em;
+    display: inline-block;
+    border-radius: 6em;
+    transition: all .2s;
+    border: none;
+    font-family: inherit;
+    font-weight: 500;
+    color: #b2967d;
+    background-color: #eee4e1;
+   }
+   
+   .boton:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+   }
+   
+   .boton:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+   }
+   
+   .boton::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+   }
+   
+   .boton::after {
+    background-color: #eee4e1;
+   }
+   
+   .boton:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+   }
+
+
+   .back {
+    position: relative;
+    font-size: 10px;
+    text-transform: uppercase;
+    text-decoration: none;
+    margin: 15px;
+    padding: 1em 2.5em;
+    display: inline-block;
+    border-radius: 6em;
+    transition: all .2s;
+    border: none;
+    font-family: inherit;
+    font-weight: 500;
+    color: #fbf6f4;
+    background-color: #ffd7ba;
+   }
+   
+   .back:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+   }
+   
+   .back:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+   }
+   
+   .back::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+   }
+   
+   .back::after {
+    background-color: #ffe5d9;
+   }
+   
+   .back:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+   }
+
+
+.error{
+    color: rgb(237, 45, 45);
+    font-weight: 500;
+}
+

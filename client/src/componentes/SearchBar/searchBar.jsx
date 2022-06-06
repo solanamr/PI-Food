@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useDispatch } from 'react-redux'
 import { recipeByName } from '../../actions/actions'
+import sb from '../SearchBar/sb.module.css'
 
 
 export default function SearchBar(){
@@ -23,8 +24,8 @@ export default function SearchBar(){
     }
     return(
         <React.Fragment>
-            <input type="text" placeholder="Buscar aquí" onChange={(e) => handleInputChange(e)}/>
-            <button type="submit" onClick={(e) => handleSubmit(e)}>Buscar</button>
+            <input type="text" placeholder="Buscar aquí" onChange={(e) => handleInputChange(e)} className= {sb.input}/>
+            <button type="submit" onClick={(e) => handleSubmit(e)} className={sb.botonCrearRec}>Buscar</button>
         </React.Fragment>
     )
 }

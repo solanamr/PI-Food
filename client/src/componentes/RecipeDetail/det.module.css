@@ -1,0 +1,42 @@
+.contenedor{
+    background-image: url(./american-heritage-chocolate-wms5MUaX6-U-unsplashx2.jpg);
+    height: 100vh;
+    background-size: 270vh;
+}
+
+*{
+    font-family: 'Rubik', sans-serif;
+}
+
+.h1{
+    color: #c9c7c6;
+    padding: 10px;
+}
+
+.h3{
+    color: #a7976e;
+    padding: 10px;
+}
+
+.h4{
+    color: #F4DAB2;
+    padding: 10px;
+}
+
+.pasos{
+    color: #a7976e;
+    padding: 10px;
+}
+
+.dietas{
+    display: block;
+    color: #dbd0c1;
+    padding: 10px;
+    margin: 10px;
+}
+
+.loading{
+    font-size: 40px;
+}
+   
+

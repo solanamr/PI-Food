@@ -7,6 +7,7 @@ import Card from "../RecipeCard/recipeCard";
 import Pagination from "../Pagination/pagination";
 import SearchBar from "../SearchBar/searchBar";
 import h from '../Home/h.module.css'
+
  
 
 export default function HomePage(){
@@ -56,20 +57,20 @@ export default function HomePage(){
         e.preventDefault()
         dispatch(scoreSort(e.target.value))
         setPagActual(1)
-        setOrden(`Ordenado ${e.target.value}`)
+        setOrden(`Ordenado ${e.target.value}`) //*
     }
 
     return(
         <React.Fragment>
          <div className={h.container}>
             <div>
-                <Link to= '/recipes'><button>Crear receta</button></Link>
+                <Link to= '/recipes'><button className={h.botonCrearRec}>Crear receta</button></Link>
                 
-                <button onClick={e => {handleClick(e)}}>Recargar recetas</button>
+                <button onClick={e => {handleClick(e)}} className={h.botonCrearRec}>Recargar recetas</button>
 
             </div>
         <div>
-        <select onChange={e => {handleAToZ(e)}}> 
+        <select onChange={e => {handleAToZ(e)}} className={h.botonCrearRec}> 
             <option value="">Búsqueda alfabética</option>
             <option value="asc">A-Z</option>
             <option value="desc">Z-A</option>
@@ -77,8 +78,8 @@ export default function HomePage(){
      </div>
     
         <div>
-            <select onChange={e => {handleFiltroByDieta(e)}}> 
-            <option velue="all">Todas las Dietas</option>
+            <select onChange={e => {handleFiltroByDieta(e)}} className={h.botonCrearRec}> 
+            <option value="all">Todas las Dietas</option>
                 <option value="gluten free">Gluten Free</option>
                 <option value="dairy free">Dairy Free</option>
                 <option value="lacto ovo vegetarian">Lacto-Ovo-Vegetarian</option>
@@ -94,7 +95,7 @@ export default function HomePage(){
         </div>
 
         <div>
-            <select onChange={e =>{handleScoreSort(e)}}>  
+            <select onChange={e =>{handleScoreSort(e)}} className={h.botonCrearRec}>  
                 <option value="">Búsqueda por puntuacion</option>
                 <option value="up">Más alta</option>
                 <option value="down">Más baja</option>
@@ -102,7 +103,7 @@ export default function HomePage(){
         </div>
 
         <div>
-            <select onChange={e => {handleFiltroDb(e)}}>  
+            <select onChange={e => {handleFiltroDb(e)}} className={h.botonCrearRec}>  
                 <option value="all">Todas las recetas</option>
                 <option value="current">Existentes</option>
                 <option value="created">Creadas</option>
@@ -117,7 +118,7 @@ export default function HomePage(){
         <SearchBar />
     <div>
         <span>
-        <div>
+        <div className={h.recetas}>
                 {
                 recetaActual?.map(r => {
                         return(

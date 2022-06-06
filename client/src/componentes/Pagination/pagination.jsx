@@ -1,4 +1,5 @@
 import React from 'react';
+import pag from '../Pagination/pag.module.css'
 
 
 export default function Pagination({recPorPag, allRecipes, paginado}){
@@ -10,17 +11,14 @@ export default function Pagination({recPorPag, allRecipes, paginado}){
     }
 
     return(
-
-        <nav>
-            <ul>
+        <React.Fragment>
+            <div>
                 {pageNumbers && pageNumbers.map(n =>{
-                    return <li key = {n}>
-                        <a onClick={() => paginado(n)}>{n}</a>
-                    </li>
+                    return <button key = {n} className={pag.botonPag} 
+                    onClick={() => paginado(n)}>{n}</button>
                 })}
-            </ul>
-        </nav>
+             </div>
+        </React.Fragment>
     )
-
-
 }
+

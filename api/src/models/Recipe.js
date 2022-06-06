@@ -25,7 +25,7 @@ module.exports = (sequelize) => {
     },
     imagen: {
       type: DataTypes.STRING,
-      defaultValue: "https://img.myloview.es/fotomurales/continuous-line-drawing-of-french-chef-showing-ok-sign-700-177320101.jpg"
+      // defaultValue: "https://img.myloview.es/fotomurales/continuous-line-drawing-of-french-chef-showing-ok-sign-700-177320101.jpg"
     },
     creadoEnDb: {
       type: DataTypes.BOOLEAN,  
