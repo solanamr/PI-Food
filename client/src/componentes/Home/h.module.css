@@ -1,13 +1,15 @@
 .container{
     /* background-color: blueviolet; */
     background-image: url(./brooke-lark-wMzx2nBdeng-unsplash.jpg);
-    height: 500vh;
-    background-size: 220vh;
+    height: 260vh;
+    background-size: 250vh;
     padding: 40px;
 }
 
 .botonCrearRec{
     font-size: 18px;
+    -webkit-text-stroke: 0.5px rgb(31, 30, 30);   
+    color: transparent;
     color: #e1e1e1;
     font-family: inherit;
     font-weight: 800;

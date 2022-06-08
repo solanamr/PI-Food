@@ -9,10 +9,11 @@
     margin: 10px;
     padding: 10px;
     cursor: pointer;
-    width: 400px;
-    height: 350px;
+    width: 280px;
+    height: 300px;
     background: rgb(255, 255, 255);
     color: #4A4E69;
+    background: rgba(255, 255, 255, 0.756);
     border-radius: 5px;
     border: 1px solid rgba(13, 13, 224, 0.2);
     transition: all .2s;
@@ -36,6 +37,6 @@
 }
    .img{
        align-items: center;
-       width: 150px;
-       height: 200px;
+       width: 100px;
+       height: 150px;
    }

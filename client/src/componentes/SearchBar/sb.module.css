@@ -1,5 +1,7 @@
 .botonCrearRec{
     font-size: 18px;
+    -webkit-text-stroke: 0.5px rgb(31, 30, 30);   
+    color: transparent;
     color: #e1e1e1;
     font-family: inherit;
     font-weight: 800;

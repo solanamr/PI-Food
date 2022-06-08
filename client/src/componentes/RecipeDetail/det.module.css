@@ -1,42 +1,150 @@
 .contenedor{
-    background-image: url(./american-heritage-chocolate-wms5MUaX6-U-unsplashx2.jpg);
-    height: 100vh;
-    background-size: 270vh;
+    background-image: url(../RecipeDetail/american-heritage-chocolate-wms5MUaX6-U-unsplashx2.jpg);
+    height: 165vh;
+    background-size: 230vh;
+    display: flex;
+    flex-direction: column;
 }
 
-*{
-    font-family: 'Rubik', sans-serif;
+.div{
+  /* display: inline-block; */
+  /* justify-content: space-evenly;
+  align-items: flex-start;
+  flex-direction: column; */
+  /* flex-wrap: wrap; */
+  margin: 160px;
+  padding: 10px;
+  /* margin-right: 20px; */
+  border-radius: 15px;
+  background-color: #22223b;
+  height: 730px;
+  width: 1120px;
+  opacity: 0.9;
 }
+
 
 .h1{
-    color: #c9c7c6;
+    font-size: 25px;
+    color: #9a8c98;
     padding: 10px;
-}
-
+  }
+  
 .h3{
-    color: #a7976e;
+   font-size: 15px;
+    color: #9a8c98;
     padding: 10px;
 }
 
 .h4{
-    color: #F4DAB2;
+  font-size: 16px;
+    color: #9a8c98;
     padding: 10px;
 }
 
 .pasos{
-    color: #a7976e;
+  font-size: 14px;
+    color: #9a8c98;
     padding: 10px;
 }
 
 .dietas{
+   font-size: 12px;
     display: block;
-    color: #dbd0c1;
-    padding: 10px;
+    color: #9a8c98;
+    padding: 5px;
     margin: 10px;
 }
 
-.loading{
-    font-size: 40px;
+.img{
+  height: 400px;
+  width: 330px;
 }
-   
 
+.load {
+    width: 100px;
+    height: 50px;
+    line-height: 50px;
+    padding-top: 30px;
+    margin-right: 20px; 
+    display: flex; 
+    justify-content: center;
+    text-align: center;
+    padding: 20px ;
+    margin: 0 auto;
+  }
+  
+  .load span {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: #847a83;
+    border-radius: 50px;
+    animation: up-down6 0.5s ease-in infinite alternate;
+  }
+  
+  .load span:nth-child(2) {
+    background: #4A4E69;
+    animation-delay: 0.16s;
+  }
+  
+  .load span:nth-child(3) {
+    background: #22223B;
+    animation-delay: 0.32s;
+  }
+  
+  .load span:nth-child(4) {
+    background: #19192a;
+    animation-delay: 0.48s;
+  }
+  
+  @keyframes up-down6 {
+    0% {
+      transform: translateY(-10px);
+    }
+  
+    100% {
+      transform: translateY(10px);
+    }
+  }
+
+
+.boton {
+    font-size: 18px;
+    color:  #f2e9e4;
+    font-family: inherit;
+    font-weight: 800;
+    cursor: pointer;
+    position: relative;
+    /* margin-top: 10px; */
+    border: none;
+    background: none;
+    text-transform: uppercase;
+    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition-duration: 400ms;
+    transition-property: color;
+  }
+  
+  .boton:focus,
+  .boton:hover {
+    color: #c9ada7;
+  }
+  
+  .boton:focus:after,
+  .boton:hover:after {
+    width: 100%;
+    left: 0%;
+  }
+  
+  .boton:after {
+    content: "";
+    pointer-events: none;
+    bottom: -2px;
+    left: 50%;
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background-color: #c9ada7;
+    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition-duration: 400ms;
+    transition-property: width, left;
+  }

@@ -13,10 +13,12 @@ export default function Pagination({recPorPag, allRecipes, paginado}){
     return(
         <React.Fragment>
             <div>
-                {pageNumbers && pageNumbers.map(n =>{
+                {
+                pageNumbers && pageNumbers.map(n =>{
                     return <button key = {n} className={pag.botonPag} 
                     onClick={() => paginado(n)}>{n}</button>
-                })}
+                })
+                }
              </div>
         </React.Fragment>
     )

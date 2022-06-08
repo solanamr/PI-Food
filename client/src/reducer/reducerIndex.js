@@ -85,7 +85,7 @@ export default function rootReducer(state = initialState, action){
                 }
 
                 case SCORE_SORT:  
-                  let sortedArr = action.payload === 'up' ? state.recetas.sort(function (a, b) {
+                  let sortedArr = action.payload === 'down' ? state.recetas.sort(function (a, b) {
                       if (a.nivelSalud > b.nivelSalud) {
                           return 1
                       }

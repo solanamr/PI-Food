@@ -1,21 +1,27 @@
 .contenedor{
     /* display: flex;
     justify-content: center; */
-    background-image: url(../RecipeCreate/micheile-dot-com-aKQmLycovOk-unsplash.jpg);
+    background-image: url(../RecipeCreate/calum-lewis-rkT_TG5NKF8-unsplashx2.jpg);
     height: 100vh;
-    background-size: 250vh;
+    background-size: 230vh;
+    /* opacity: 0.5; */
     
 }
-.div{
 
-    /* display: flex;
-    flex-wrap: wrap; */
-    /* align-items: center; */
-    /* text-align: center; */
+.div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-h1{
-    color: #927c69;
+
+.h1 .input .label .dietas .check{
+    font-family: 'Inconsolata', monospace;
+}
+
+
+.h1{
+    color: #945555;
     text-align: center;
     padding: 20px;
     
@@ -23,27 +29,31 @@ h1{
 
 .input{
     /* display: flex; */
-    align-items: center;
-    margin: 10px;
+    margin: 15px;
+    padding-top: 10px;
+    padding: 5px;
 }
 .label{
     /* display: flex; */
-    align-items: center;
-    margin: 25px;
-    padding: 1px;
-    font-size: 20px;
-    color: #3d3a39;
+    /* align-items: center; */
+    margin: 10px;
+    padding-right: 10px;
+    /* font-size: 15px; */
+    font-weight: 600;
+    color: #000000;
 
 }
 
 .dietas{
     margin: 10px;
-    font-size: 20px;
+    /* font-size: 20px; */
+    font-weight: 700;
     color: #3d3a39;
 }
 
 .check{
     /* padding: 5px; */
+    font-weight: 600;
     margin: 15px;
     text-align: center;
     color: #3d3a39;
@@ -62,8 +72,8 @@ h1{
     border: none;
     font-family: inherit;
     font-weight: 500;
-    color: #b2967d;
-    background-color: #eee4e1;
+    color: #EDEDE9;
+    background-color: #D5BDAF;
    }
    
    .boton:hover {
@@ -90,7 +100,7 @@ h1{
    }
    
    .boton::after {
-    background-color: #eee4e1;
+    background-color: #e3ddda;
    }
    
    .boton:hover::after {
@@ -112,8 +122,8 @@ h1{
     border: none;
     font-family: inherit;
     font-weight: 500;
-    color: #fbf6f4;
-    background-color: #ffd7ba;
+    color: #F5EBE0;
+    background-color: #D6CCC2;
    }
    
    .back:hover {
@@ -140,7 +150,7 @@ h1{
    }
    
    .back::after {
-    background-color: #ffe5d9;
+    background-color: #e3ddda;
    }
    
    .back:hover::after {
@@ -150,7 +160,8 @@ h1{
 
 
 .error{
-    color: rgb(237, 45, 45);
+    background-color: #efedeb;
+    color: #ff002b;
     font-weight: 500;
 }
 

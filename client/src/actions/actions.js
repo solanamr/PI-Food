@@ -83,7 +83,7 @@ export function recipeByName(name){
                 payload: busqueda.data
             })
         } catch (error) {
-            console.log(error)
+            alert("Receta inexistente")
         }
     }
 }

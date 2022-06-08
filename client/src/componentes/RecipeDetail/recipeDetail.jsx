@@ -22,22 +22,29 @@ export default function RecipesDetails(){
             <div className={det.contenedor}>
                 {
                     detalleRec.length > 0 ?
-                    <div>
+                    <div className={det.div}>
                         <h1 className={det.h1}>Nombre: {detalleRec[0].name}</h1>
 
                         <h3 className={det.h3}>Resumen: {detalleRec[0].resumen.replace(/<[^>]*>?/g, '')}</h3>
 
-                        <h4 className={det.h4}>Nivel de saludable: {detalleRec[0].nivelSalud ? detalleRec[0].nivelSalud : "No se ha indicado el nivel de salud"}  </h4>
-
-                        <img src={detalleRec[0].image ? detalleRec[0].image : detalleRec[0].imagen} alt="" />
+                        <h4 className={det.h4}>Nivel de saludable: {detalleRec[0].nivelSalud ? detalleRec[0].nivelSalud : "No se ha indicado el nivel de salud"}</h4>
                     
                         <h4 className={det.pasos}>Pasos: {detalleRec[0].pasos ? detalleRec[0].pasos : "No se han indicado los pasos" }</h4>
                 
                         <h4 className={det.dietas}>Dietas: {detalleRec[0].dieta.length === 0 ? "No se han indicado dietas" : !detalleRec[0].creadoEnDb ? detalleRec[0].dieta + "" : detalleRec[0].dieta.map((d) => d.name + (' '))}</h4> 
+
+                        <img src={detalleRec[0].image ? detalleRec[0].image : detalleRec[0].imagen} alt="" />
                     </div>
                     
                     : 
-                        <p className={det.loading}>Cargando...</p>
+                    <div className={det.load}>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                    
+                        // <p className={det.loading}>Cargando...</p>
                 }
                 <Link to = '/home'>
                     <button className={det.boton}>Volver al menu principal</button>

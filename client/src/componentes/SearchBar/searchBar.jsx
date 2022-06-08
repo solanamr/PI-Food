@@ -17,10 +17,12 @@ export default function SearchBar(){
     
     function handleSubmit(e){
         e.preventDefault(e)
-        dispatch(recipeByName(name))
-        // setName({
-        //     name: ""
-        // })
+        if(name !== ''){
+            dispatch(recipeByName(name))
+            setName("")
+        }else{
+            alert("Por favor introducir una receta existente")
+        }
     }
     return(
         <React.Fragment>
