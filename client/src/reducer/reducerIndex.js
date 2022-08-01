@@ -5,13 +5,14 @@ import {GET_ALL_RECIPES,
   SCORE_SORT, 
   SEARCH_RECIPE,
   GET_DIET,
-  GET_RECIPE_DETAILS} from '../actions/actions' 
+  GET_RECIPE_DETAILS,
+  RESET_DETAIL} from '../actions/actions' 
 
 
 const initialState = {
     recetas: [],
     recetasCopy: [],
-    detalles: []
+    detalles: [],
 }
 
 export default function rootReducer(state = initialState, action){
@@ -47,6 +48,7 @@ export default function rootReducer(state = initialState, action){
               ...state,
               recetas: filtroDieta
             }
+
 
             case FILTRO_CREACION: //* anda a medias
               const dFilter = state.recetasCopy
@@ -113,6 +115,18 @@ export default function rootReducer(state = initialState, action){
                       ...state,
                       detalles: action.payload
                     }
+              
+
+                    case RESET_DETAIL:
+
+                      const reseteo = []
+                      console.log(reseteo)
+        
+                        return{
+                          ...state,
+                          detalles: reseteo
+                        }
+                 
         default:
           return {...state}
       }

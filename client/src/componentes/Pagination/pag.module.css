@@ -3,7 +3,8 @@ background-color: #C9ADA7;
 border-color: #C9ADA7;
 border-radius: 3px;
 color: #22223B;
-margin: 4px;
+margin: 0.3vw;
+margin-top: 1vw;
 }
 
 .botonPag:hover{
@@ -11,5 +12,5 @@ margin: 4px;
     border-color: #4A4E69;
     border-radius: 4px;
     color: #C9ADA7;
-    transition: 0.4s;
+    transition: 0.5s;
 }

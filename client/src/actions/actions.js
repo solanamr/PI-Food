@@ -4,11 +4,12 @@ import axios from 'axios';
 export const GET_ALL_RECIPES = "GET_ALL_RECIPES";
 export const DIET_TYPE_FILTER = "DIET_TYPE_FILTER";
 export const FILTRO_CREACION = "FILTRO_CREACION";
-export const ALPHABETICAL_SORT = "ALPHABETICAL_SORT"
+export const ALPHABETICAL_SORT = "ALPHABETICAL_SORT";
 export const SCORE_SORT = "SCORE_SORT";
 export const SEARCH_RECIPE = "SEARCH_RECIPE";
 export const GET_DIET = "GET_DIET";
 export const GET_RECIPE_DETAILS = "GET_RECIPE_DETAILS";
+export const RESET_DETAIL = "RESET_DETAIL";
  
 
 
@@ -140,5 +141,12 @@ export function scoreSort(payload){
     return{
         type: "SCORE_SORT",
         payload: payload
+    }
+}
+
+
+export function resetDetail(){
+    return{
+        type: "RESET_DETAIL",
     }
 }

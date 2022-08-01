@@ -1,82 +1,76 @@
 .contenedor{
     background-image: url(../RecipeDetail/american-heritage-chocolate-wms5MUaX6-U-unsplashx2.jpg);
     height: 165vh;
-    background-size: 230vh;
+    background-size: cover;
     display: flex;
     flex-direction: column;
 }
 
 .div{
-  /* display: inline-block; */
-  /* justify-content: space-evenly;
-  align-items: flex-start;
-  flex-direction: column; */
-  /* flex-wrap: wrap; */
-  margin: 160px;
-  padding: 10px;
-  /* margin-right: 20px; */
+  margin: 9.5vw;
+  padding: 1vw;
   border-radius: 15px;
   background-color: #22223b;
-  height: 730px;
-  width: 1120px;
+  height: 150vh;
+  width: 80vw;
   opacity: 0.9;
 }
 
 
 .h1{
-    font-size: 25px;
+    font-size: 2vw;
     color: #9a8c98;
-    padding: 10px;
+    padding: 0.5vw;
   }
   
 .h3{
-   font-size: 15px;
+   font-size: 1vw;
     color: #9a8c98;
-    padding: 10px;
+    padding: 0.5vw;
 }
 
 .h4{
-  font-size: 16px;
+  font-size: 1vw;
     color: #9a8c98;
-    padding: 10px;
+    padding: 0.5vw;
 }
 
 .pasos{
-  font-size: 14px;
+  font-size: 0.9vw;
     color: #9a8c98;
-    padding: 10px;
+    padding: 0.5vw;
 }
 
 .dietas{
-   font-size: 12px;
+   font-size: 0.9vw;
     display: block;
     color: #9a8c98;
-    padding: 5px;
-    margin: 10px;
+    padding: 0.5vw;
+    margin: 1vw;
 }
 
 .img{
-  height: 400px;
-  width: 330px;
+  height: 30vh;
+  width: 20vw;
 }
 
 .load {
-    width: 100px;
-    height: 50px;
+    width: 20vh;
+    height: 10vw;
     line-height: 50px;
-    padding-top: 30px;
-    margin-right: 20px; 
+    padding-top: 10vw;
+    margin-right: 10vw; 
     display: flex; 
     justify-content: center;
     text-align: center;
-    padding: 20px ;
+    padding: 5vw;
     margin: 0 auto;
   }
   
   .load span {
     display: inline-block;
-    width: 10px;
-    height: 10px;
+    width: 2.5vh;
+    height: 1.2vw;
     background: #847a83;
     border-radius: 50px;
     animation: up-down6 0.5s ease-in infinite alternate;
@@ -107,15 +101,18 @@
     }
   }
 
+.containerLoad{
+  margin-top: 10vw;
+}
 
 .boton {
-    font-size: 18px;
+    font-size: 1.2vw;
     color:  #f2e9e4;
     font-family: inherit;
     font-weight: 800;
     cursor: pointer;
     position: relative;
-    /* margin-top: 10px; */
+    margin-top: 5vw;
     border: none;
     background: none;
     text-transform: uppercase;
@@ -142,7 +139,7 @@
     left: 50%;
     position: absolute;
     width: 0%;
-    height: 2px;
+    height: 0.3vw;
     background-color: #c9ada7;
     transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
     transition-duration: 400ms;

@@ -1,11 +1,3 @@
-.container{
-    /* background-color: blueviolet; */
-    background-image: url(./brooke-lark-wMzx2nBdeng-unsplash.jpg);
-    height: 210vh;
-    background-size: cover;
-    padding: 40px;
-}
-
 .botonCrearRec{
     font-size: 18px;
     -webkit-text-stroke: 0.5px rgb(31, 30, 30);   
@@ -47,45 +39,3 @@
     transition-duration: 400ms;
     transition-property: width, left;
   }
-
-  .recetas {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-  }
-
-
-.ball {
-  --size: 20px;
-  --timing: 0.7s;
-  --displace: 70px;
-  border-radius: 50%;
-  width: var(--size);
-  height: var(--size);
-  background: #000;
-  margin-left: 2vw;
-  animation: animation321 var(--timing) infinite alternate
-     cubic-bezier(0.68, -0.55, 0.265, 1.55);
-     margin-top: 12vw;
- }
- 
- @keyframes animation321 {
-  0% {
-   background: #22223B;
-   transform: translateX(var(--displace));
-  }
- 
-  100% {
-   background: #847a83;
-   transform: translateX(00px);
-  }
- }
- 
-
-.loading{
-  margin-top: 2vw;
-  font-size: 2.5vw;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 500;
-  color: #22223B;
-}

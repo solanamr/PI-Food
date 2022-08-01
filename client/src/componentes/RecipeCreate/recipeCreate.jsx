@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { geDieta, postReceta } from '../../actions/actions';
+import { geDieta, postReceta, resetDetail, getRecipeDetail } from '../../actions/actions';
 import { useDispatch, useSelector } from "react-redux";
+import swal from "sweetalert";
 import crear from '../RecipeCreate/crear.module.css';
 
 
@@ -68,7 +69,11 @@ export default function RecipeCreate(){
     function handleSubmit(e){
         e.preventDefault()
         if(!input.name || !input.resumen || !input.nivelSalud || !input.pasos){
-            return alert('Complete los campos vacios.')
+            return swal({
+                title: 'Campos incompletos',
+                text: 'Debe completar todos los campos',
+                icon: 'error',
+                dangerMode:true})
           }
         dispatch(postReceta(input))
         setInput({
@@ -87,9 +92,9 @@ export default function RecipeCreate(){
     return(
         <React.Fragment>
             <div className={crear.contenedor}>
-                <div>
+                <div className={crear.card}>
                 <h1 className={crear.h1}>A cocinar</h1>
-                <form onSubmit={(e) => {handleSubmit(e)}} >
+                <form onSubmit={(e) => {handleSubmit(e)}}>
                      <div>
                          <div className={crear.div}>
                         <label className={crear.label}>Nombre</label>
@@ -122,30 +127,40 @@ export default function RecipeCreate(){
                             {errores.pasos && (<p className={crear.error}>{errores.pasos}</p>)}
                         </div>
 
-                        <div className={crear.div}>
-                            <label className={crear.dietas}>Dietas</label>
-                            <label className={crear.check}>Gluten Free</label>
-                            <input type="checkbox" value= "gluten free" name="gluten free" onChange={(e) =>handleCheck(e)} className={crear.input}/>
+                           <div className={crear.dietas}><label>Dietas</label></div>
+                            <div className={crear.div}>
+                            <label className={crear.container}>Gluten Free</label>
+                            <input type="checkbox" value= "gluten free" name="gluten free" onChange={(e) =>handleCheck(e)} className={crear.inputC}/>
                             <label className={crear.check}>Dairy Free</label>
-                            <input type="checkbox" value= "dairy free" name="dairy free" onChange={(e) =>handleCheck(e)} className={crear.input}/>
+                            <input type="checkbox" value= "dairy free" name="dairy free" onChange={(e) =>handleCheck(e)} className={crear.inputC}/>
+                            <div className={crear.checkmark}></div>
                             <label className={crear.check}>Lacto-ovo vegetarian</label>
-                            <input type="checkbox" value= "lacto ovo vegetarian" name="lacto ovo vegetarian" onChange={(e) =>handleCheck(e)} className={crear.input}/>
+                            <input type="checkbox"  value= "lacto ovo vegetarian" name="lacto ovo vegetarian" onChange={(e) =>handleCheck(e)} className={crear.inputC}/>
+                            <div className={crear.checkmark}></div>
                             <label className={crear.check}>Vegano</label>
-                            <input type="checkbox" value= "vegan" name="vegan" onChange={(e) =>handleCheck(e)} className={crear.input}/>
+                            <input type="checkbox" value= "vegan" name="vegan" onChange={(e) =>handleCheck(e)} className={crear.inputC}/>
+                            <div className={crear.checkmark}></div>
                             <label className={crear.check}>Paleo</label>
-                            <input type="checkbox" value= "paleolithic" name="paleolithic" onChange={(e) =>handleCheck(e)} className={crear.input}/>
+                            <input type="checkbox" value= "paleolithic" name="paleolithic" onChange={(e) =>handleCheck(e)} className={crear.inputC}/>
+                            <div className={crear.checkmark}></div>
                             <label className={crear.check}>Primitiva</label>
-                            <input type="checkbox" value= "primal" name="primal" onChange={(e) =>handleCheck(e)} className={crear.input}/>
+                            <input type="checkbox" value= "primal" name="primal" onChange={(e) =>handleCheck(e)} className={crear.inputC}/>
+                            <div className={crear.checkmark}></div>
                             <label className={crear.check}>Whole 30</label>
-                            <input type="checkbox" value= "whole 30" name="whole 30" onChange={(e) =>handleCheck(e)} className={crear.input}/>
+                            <input type="checkbox" value= "whole 30" name="whole 30" onChange={(e) =>handleCheck(e)} className={crear.inputC}/>
+                            <div className={crear.checkmark}></div>
                             <label className={crear.check}>FODMAP friendly</label>
-                            <input type="checkbox" value= "fodmap friendly" name="fodmap friendly" onChange={(e) =>handleCheck(e)} className={crear.input}/>
+                            <input type="checkbox" value= "fodmap friendly" name="fodmap friendly" onChange={(e) =>handleCheck(e)} className={crear.inputC}/>
+                            <div className={crear.checkmark}></div>
                             <label className={crear.check}>Vegetariano</label>
-                            <input type="checkbox" value= "vegetarian" name="vegetarian" onChange={(e) =>handleCheck(e)} className={crear.input}/>
+                            <input type="checkbox" value= "vegetarian" name="vegetarian" onChange={(e) =>handleCheck(e)} className={crear.inputC}/>
+                            <div className={crear.checkmark}></div>
                             <label className={crear.check}>Pescatariano</label>
-                            <input type="checkbox" value= "pescatarian" name="pescatarian" onChange={(e) =>handleCheck(e)} className={crear.input}/>
+                            <input type="checkbox" value= "pescatarian" name="pescatarian" onChange={(e) =>handleCheck(e)} className={crear.inputC}/>
+                            <div className={crear.checkmark}></div>
                             <label className={crear.check}>Keto</label>
-                            <input type="checkbox" value= "ketogenic" name="ketogenic" onChange={(e) =>handleCheck(e)} className={crear.input}/>
+                            <input type="checkbox" value= "ketogenic" name="ketogenic" onChange={(e) =>handleCheck(e)} className={crear.inputC}/>
+                            <div className={crear.checkmark}></div>
                         </div>
                     
                         <button type="submit" className={crear.boton} disabled={Object.keys(errores).length}>Crear receta</button>

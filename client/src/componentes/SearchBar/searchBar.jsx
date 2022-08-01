@@ -26,7 +26,7 @@ export default function SearchBar(){
     }
     return(
         <React.Fragment>
-            <input type="text" placeholder="Buscar aquí" onChange={(e) => handleInputChange(e)} className= {sb.input}/>
+            <input type="text" placeholder="Buscar receta" onChange={(e) => handleInputChange(e)} className= {sb.input}/>
             <button type="submit" onClick={(e) => handleSubmit(e)} className={sb.botonCrearRec}>Buscar</button>
         </React.Fragment>
     )

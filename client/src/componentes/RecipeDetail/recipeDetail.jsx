@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector} from 'react-redux';
-import { getRecipeDetail } from '../../actions/actions'
+import { getRecipeDetail, resetDetail } from '../../actions/actions'
 import { useEffect } from 'react';
 import det from '../RecipeDetail/det.module.css'
 
@@ -11,6 +11,7 @@ export default function RecipesDetails(){
     const { id } = useParams()
     
     useEffect(() =>{
+        dispatch(resetDetail())
         dispatch(getRecipeDetail(id))
     },[dispatch, (id)])
     
@@ -38,10 +39,12 @@ export default function RecipesDetails(){
                     
                     : 
                     <div className={det.load}>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                        <div className={det.containerLoad}>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
                 </div>
                     
                         // <p className={det.loading}>Cargando...</p>

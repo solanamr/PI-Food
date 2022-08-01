@@ -6,17 +6,21 @@ import { Link } from "react-router-dom";
 import Card from "../RecipeCard/recipeCard";
 import Pagination from "../Pagination/pagination";
 import SearchBar from "../SearchBar/searchBar";
+import FilterDiet from "../Filtros/Dietas/Dieta";
+import DbOrApi from '../Filtros/Creacion/Creacion';
+import AtoZ from '../Filtros/OrdenAToZ/OrdenAToZ';
+import HealthScore from '../Filtros/HealthScore/healtScore';
 import h from '../Home/h.module.css'
 
  
 
 export default function HomePage(){
     
-    const dispatch = useDispatch()  //* mapdispatch...
-    const allRecipes = useSelector((state) => {return state.recetas})  //* reemplaza al mapstatetoprops
+    const dispatch = useDispatch()  
+    const allRecipes = useSelector((state) => {return state.recetas})  
     const [orden, setOrden] = useState("")
-    const [pagActual, setPagActual] = useState(1) //estado local de la pagina actual
-    const [recPorPag, setRecPorPag] = useState(9) // estado local de personaje por pag
+    const [pagActual, setPagActual] = useState(1) 
+    const [recPorPag, setRecPorPag] = useState(9) 
     const indiceLastRec = pagActual * recPorPag;
     const indiceFirstRec = indiceLastRec - recPorPag;
     const recetaActual = allRecipes.slice(indiceFirstRec, indiceLastRec)
@@ -28,7 +32,7 @@ export default function HomePage(){
 
     // const mapDieta = dieta.map(el => el.dieta)
 
-    useEffect(() =>{    //*reemplaza mapdispatchtoprops
+    useEffect(() =>{    
         dispatch(getAllRecipes())
     }, [dispatch])
 
@@ -70,57 +74,50 @@ export default function HomePage(){
 
             </div>
         <div>
+        {/* <AtoZ/> */}
         <select onChange={e => {handleAToZ(e)}} className={h.botonCrearRec}> 
             <option value="">Búsqueda alfabética</option>
             <option value="asc">A-Z</option>
             <option value="desc">Z-A</option>
         </select>
+
      </div>
     
         <div>
-            <select onChange={e => {handleFiltroByDieta(e)}} className={h.botonCrearRec}> 
-            <option value="all">Todas las Dietas</option>
-                <option value="gluten free">Gluten Free</option>
-                <option value="dairy free">Dairy Free</option>
-                <option value="lacto ovo vegetarian">Lacto-Ovo-Vegetarian</option>
-                <option value="vegan">Vegan</option>
-                <option value="paleolithic">Paleolithic</option>
-                <option value="primal">Primal</option>
-                <option value="whole 30">Whole30</option>
-                <option value="fodmap friendly">Fodmap Friendly</option>
-                <option value="vegetarian">Vegetarian</option>
-                <option value="pescatarian">Pescatarian</option>
-                <option value="ketogenic">Ketogenic</option>
-             </select>
+        <FilterDiet/>
+
         </div>
 
         <div>
-            <select onChange={e =>{handleScoreSort(e)}} className={h.botonCrearRec}>  
+        <select onChange={e =>{handleScoreSort(e)}} className={h.botonCrearRec}>  
                 <option value="">Búsqueda por puntuacion</option>
                 <option value="up">Más alta</option>
                 <option value="down">Más baja</option>
             </select>
+            {/* <HealthScore setPagActual={setPagActual} setOrden={setOrden}/> */}
         </div>
 
         <div>
-            <select onChange={e => {handleFiltroDb(e)}} className={h.botonCrearRec}>  
+        <select onChange={e => {handleFiltroDb(e)}} className={h.botonCrearRec}>  
                 <option value="all">Todas las recetas</option>
                 <option value="current">Existentes</option>
                 <option value="created">Creadas</option>
             </select>
+            {/* <DbOrApi setPagActual={setPagActual} setOrden={setOrden}/> */}
         </div>
 
+        <SearchBar />
+        
         <Pagination
         recPorPag = {recPorPag}
         allRecipes = {allRecipes.length}
         paginado = {paginado}
         />
-        <SearchBar />
     <div>
         <span>
         <div className={h.recetas}>
                 {
-                recetaActual?.map(r => {
+                recetaActual.length > 0 ? recetaActual?.map(r => {
                         return(
                             <div key = {r.id}>
                                 <Link to= {`/recipes/${r.id}`}>
@@ -129,6 +126,11 @@ export default function HomePage(){
                             </div>
                         )
                     })
+                    :
+                    <div>
+                    <div className={h.ball}></div>
+                    <p className={h.loading}>Loading</p>
+                </div>
                 }
             </div>
         </span>

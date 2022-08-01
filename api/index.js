@@ -22,7 +22,7 @@ const { conn } = require('./src/db.js');
 const { getApiInfo } = require('./src/controllers/ApiData')
 
 // Syncing all the models at once.
-conn.sync({ force: false })  //*1. npm start
+conn.sync({ force: true })  //*1. npm start
                             //*2. matar la terminal(ctrl + c)
                             //*3. ponerlo en false
 
