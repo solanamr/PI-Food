@@ -16,6 +16,7 @@ Para el backend se utilizó:
 Y para la base de datos se empleó:
 - PostgreSQL. 
 - Sequelize.
+
 Éste cuenta con dos ordenamientos de recetas: uno que ordena de la A a la Z y viceversa, y otro que ordena por puntuación de saludable. Además, contiene dos filtrados: uno que filtra por tipo de dieta, y otro que filtra por creados y los que te vienen desde la API. También incluye una barra de búsqueda que te permite encontrar la receta que más deseas.
 Acá tenés el deploy para que le eches un vistazo: https://food-app-solanamr.vercel.app/
 
