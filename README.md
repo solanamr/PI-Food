@@ -10,9 +10,11 @@ El proyecto se realizó para el frontend con:
 - React.js. 
 - Redux.js.
 - CSS puro.
+
 Para el backend se utilizó:
 - Node.js. 
 - Express.js. 
+
 Y para la base de datos se empleó:
 - PostgreSQL. 
 - Sequelize.
